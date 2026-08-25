@@ -11,7 +11,7 @@ import {
   User,
   AlertTriangle,
   ArrowRight,
-  Sparkles,
+  ChevronDown
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { SERVICES_DATA } from '../data/mockData';
@@ -72,34 +72,34 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl bg-[#fdfbf7] text-[#1c2c22] rounded-[28px] shadow-2xl border border-stone-200 overflow-hidden max-h-[92vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 xs:p-3 sm:p-4 md:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl bg-[#fdfbf7] text-[#1c2c22] rounded-xl sm:rounded-2xl md:rounded-[28px] shadow-2xl border border-stone-200 overflow-hidden max-h-[95vh] sm:max-h-[90vh] flex flex-col">
         {/* Header Bar */}
-        <div className="bg-[#264435] text-white p-6 sm:px-8 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#c44b2b] flex items-center justify-center text-white shadow-md">
-              <Zap className="w-5 h-5 fill-current" />
+        <div className="bg-[#264435] text-white p-3 xs:p-4 sm:p-5 md:p-6 flex items-center justify-between gap-2 xs:gap-3">
+          <div className="flex items-center gap-2 xs:gap-3 min-w-0 flex-1">
+            <div className="w-8 xs:w-9 sm:w-10 h-8 xs:h-9 sm:h-10 rounded-lg xs:rounded-xl bg-[#c44b2b] flex items-center justify-center text-white shadow-md flex-shrink-0">
+              <Zap className="w-4 xs:w-5 h-4 xs:h-5 fill-current" />
             </div>
-            <div>
-              <h3 className="text-xl sm:text-2xl font-condensed font-black tracking-wide uppercase">
-                {isSubmitted ? 'SERVICE BOOKING CONFIRMED' : 'BOOK ELECTRICAL SERVICE'}
+            <div className="min-w-0 flex-1">
+              <h3 className="text-sm xs:text-base sm:text-lg md:text-2xl font-condensed font-black tracking-wide uppercase leading-tight">
+                {isSubmitted ? 'BOOKING CONFIRMED' : 'BOOK SERVICE'}
               </h3>
-              <p className="text-xs text-emerald-200">
-                CHAUHANELECTRIX. • Upfront Transparent Pricing
+              <p className="text-xs xs:text-xs sm:text-sm text-emerald-200 truncate">
+                CHAUHANELECTRIX • Transparent Pricing
               </p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+            className="w-8 xs:w-9 sm:w-10 h-8 xs:h-9 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer flex-shrink-0"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 xs:w-5 sm:w-5" />
           </button>
         </div>
 
         {/* Modal Content */}
-        <div className="p-6 sm:p-8 overflow-y-auto flex-1">
+        <div className="p-3 xs:p-4 sm:p-6 md:p-8 overflow-y-auto flex-1 w-full">
           {isSubmitted ? (
             <div className="text-center space-y-6 py-4">
               <div className="w-20 h-20 rounded-full bg-emerald-100 border-4 border-emerald-300 text-emerald-700 flex items-center justify-center mx-auto shadow-lg animate-bounce">
@@ -151,83 +151,89 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Step 1: Select Service Category */}
               <div>
-                <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
+                <label className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-stone-700 mb-2 sm:mb-3">
                   1. Select Electrical Service
                 </label>
-                <select
-                  value={selectedService}
-                  onChange={(e) => setSelectedService(e.target.value)}
-                  className="w-full bg-white border border-stone-300 rounded-xl px-4 py-3 text-sm font-semibold text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#294537]"
-                >
-                  {SERVICES_DATA.map((s) => (
-                    <option key={s.id} value={s.title}>
-                      {s.number} - {s.title}
+                <div className="relative">
+                  <select
+                    value={selectedService}
+                    onChange={(e) => setSelectedService(e.target.value)}
+                    className="w-full bg-white border border-stone-300 rounded-xl px-4 py-3 pr-10 text-sm font-semibold text-stone-900 appearance-none cursor-pointer hover:border-[#294537] focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
+                  >
+                    {SERVICES_DATA.map((s) => (
+                      <option key={s.id} value={s.title}>
+                        {s.number} - {s.title}
+                      </option>
+                    ))}
+                    <option value="Emergency Short Circuit & Power Outage">
+                      ⚡ Emergency Short Circuit / Sparking Outage
                     </option>
-                  ))}
-                  <option value="Emergency Short Circuit & Power Outage">
-                    ⚡ Emergency Short Circuit / Sparking Outage
-                  </option>
-                  <option value="General Electrical Inspection & Audit">
-                    🔍 General Electrical Inspection &amp; Safety Audit
-                  </option>
-                </select>
+                    <option value="General Electrical Inspection & Audit">
+                      🔍 General Electrical Inspection &amp; Safety Audit
+                    </option>
+                  </select>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#294537]">
+                    <ChevronDown/>
+                  </div>
+                </div>
               </div>
 
               {/* Step 2: Urgency Level */}
               <div>
-                <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
+                <label className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-stone-700 mb-2 sm:mb-3">
                   2. Service Urgency
                 </label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-1.5 xs:gap-2 sm:gap-3">
                   <button
                     type="button"
                     onClick={() => setUrgency('routine')}
-                    className={`p-3 rounded-xl border text-xs font-bold transition-all text-center cursor-pointer ${
+                    className={`p-2 xs:p-2.5 sm:p-3 rounded-lg xs:rounded-xl border text-xs sm:text-sm font-bold transition-all text-center cursor-pointer ${
                       urgency === 'routine'
                         ? 'bg-[#294537] text-white border-[#294537] shadow-sm'
                         : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
                     }`}
                   >
-                    📅 Standard Booking
+                    <span className="hidden xs:inline">📅 </span>Standard
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setUrgency('urgent')}
-                    className={`p-3 rounded-xl border text-xs font-bold transition-all text-center cursor-pointer ${
+                    className={`p-2 xs:p-2.5 sm:p-3 rounded-lg xs:rounded-xl border text-xs sm:text-sm font-bold transition-all text-center cursor-pointer ${
                       urgency === 'urgent'
                         ? 'bg-amber-600 text-white border-amber-600 shadow-sm'
                         : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
                     }`}
                   >
-                    ⏱️ Same Day (2-4 hrs)
+                    <span className="hidden xs:inline">⏱️ </span>Same Day
                   </button>
 
                   <button
                     type="button"
                     onClick={() => setUrgency('emergency')}
-                    className={`p-3 rounded-xl border text-xs font-bold transition-all text-center cursor-pointer ${
+                    className={`p-2 xs:p-2.5 sm:p-3 rounded-lg xs:rounded-xl border text-xs sm:text-sm font-bold transition-all text-center cursor-pointer ${
                       urgency === 'emergency'
                         ? 'bg-[#c44b2b] text-white border-[#c44b2b] shadow-sm animate-pulse'
                         : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
                     }`}
                   >
-                    🚨 Emergency (30 mins)
+                    <span className="hidden xs:inline">🚨 </span>Emergency
                   </button>
                 </div>
               </div>
 
               {/* Step 3: Date and Time Slot */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
+                  <label className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-stone-700 mb-2 sm:mb-3">
                     Preferred Date
                   </label>
                   <input
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 text-sm text-stone-900 font-medium focus:outline-hidden focus:ring-2 focus:ring-[#294537]"
+                    min={new Date().toISOString().split('T')[0]}
+                    className="w-full bg-white border-2 border-stone-300 rounded-xl px-4 py-2.5 text-sm text-stone-900 font-medium focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
                     required
                   />
                 </div>
@@ -236,24 +242,29 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700 mb-2">
                     Time Slot
                   </label>
-                  <select
-                    value={timeSlot}
-                    onChange={(e) => setTimeSlot(e.target.value)}
-                    className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 text-sm text-stone-900 font-medium focus:outline-hidden focus:ring-2 focus:ring-[#294537]"
-                  >
-                    <option value="08:00 AM - 10:00 AM">08:00 AM - 10:00 AM (Early Morning)</option>
-                    <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM (Morning)</option>
-                    <option value="12:00 PM - 02:00 PM">12:00 PM - 02:00 PM (Afternoon)</option>
-                    <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM (Late Afternoon)</option>
-                    <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM (Evening)</option>
-                    <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM (Night)</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      value={timeSlot}
+                      onChange={(e) => setTimeSlot(e.target.value)}
+                      className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 pr-10 text-sm text-stone-900 font-medium appearance-none cursor-pointer hover:border-[#294537] focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
+                    >
+                      <option value="08:00 AM - 10:00 AM">08:00 AM - 10:00 AM (Early Morning)</option>
+                      <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM (Morning)</option>
+                      <option value="12:00 PM - 02:00 PM">12:00 PM - 02:00 PM (Afternoon)</option>
+                      <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM (Late Afternoon)</option>
+                      <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM (Evening)</option>
+                      <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM (Night)</option>
+                    </select>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#294537]">
+                      <ChevronDown/>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Step 4: Contact & Location Info */}
-              <div className="space-y-4 pt-2 border-t border-stone-200">
-                <label className="block text-xs font-extrabold uppercase tracking-wider text-stone-700">
+              <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-3 border-t border-stone-200">
+                <label className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-stone-700">
                   3. Contact &amp; Service Location
                 </label>
 
@@ -293,19 +304,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     />
                   </div>
 
-                  <div>
+                  <div className="relative">
                     <select
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 text-sm text-stone-900 font-medium focus:outline-hidden focus:ring-2 focus:ring-[#294537]"
+                      className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 pr-10 text-sm text-stone-900 font-medium appearance-none cursor-pointer hover:border-[#294537] focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
                     >
                       <option value="Solan">Solan</option>
-                      {/* <option value="Mumbai"></option>
+                      {/* <option value="Mumbai">Mumbai</option>
                       <option value="Bengaluru">Bengaluru</option>
                       <option value="Delhi NCR">Delhi NCR</option>
                       <option value="Hyderabad">Hyderabad</option>
                       <option value="Goa">Goa</option> */}
                     </select>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#294537]">
+                      <ChevronDown/>
+                    </div>
                   </div>
                 </div>
 
@@ -331,10 +345,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-[#c44b2b] hover:bg-[#a63c20] text-white font-extrabold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-2.5 xs:py-3 sm:py-3.5 px-4 xs:px-5 sm:px-6 rounded-lg xs:rounded-xl bg-[#c44b2b] hover:bg-[#a63c20] text-white font-extrabold text-xs xs:text-sm sm:text-base uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Confirm Service Appointment</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="hidden xs:inline">Confirm Service Appointment</span>
+                <span className="xs:hidden">Confirm</span>
+                <ArrowRight className="w-3 xs:w-4 h-3 xs:h-4" />
               </button>
             </form>
           )}

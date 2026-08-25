@@ -72,18 +72,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconType: 'maintenance',
     popular: true,
   },
-  {
-    id: 'commercial',
-    number: '06',
-    title: 'COMMERCIAL & INDUSTRIAL SERVICES',
-    items: [
-      '3-Phase Power Installation',
-      'Control Panel Assembly',
-      'High-Load Cabling',
-    ],
-    iconType: 'industrial',
-  },
-];
+  ];
 
 export const WHY_CHOOSE_US_FEATURES: FeatureItem[] = [
   {
@@ -145,6 +134,12 @@ export const HOW_IT_WORKS_STEPS: StepItem[] = [
   },
   {
     number: '04',
+    title: 'CONFIRM & PAY',
+    description: 'Pay a small confirmation token to reserve your service slot.',
+    icon: 'credit-card',
+  },
+  {
+    number: '05',
     title: 'WE GET TO WORK',
     description: 'Our electrician arrives on time and gets the job done safely and professionally.',
     icon: 'hard-hat',

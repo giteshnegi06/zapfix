@@ -10,6 +10,7 @@ import {
   Clock,
   ShieldCheck,
   ArrowRight,
+  CreditCard,
 } from 'lucide-react';
 import { HOW_IT_WORKS_STEPS } from '../data/mockData';
 
@@ -39,6 +40,12 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onOpenBook
           </div>
         );
       case 3:
+        return (
+          <div className="w-20 h-20 rounded-full bg-emerald-50 border-4 border-white shadow-lg flex items-center justify-center text-[#294537]">
+            <CreditCard className="w-10 h-10 text-[#294537]" />
+          </div>
+        );
+      case 4:
         return (
           <div className="w-20 h-20 rounded-full bg-emerald-50 border-4 border-white shadow-lg flex items-center justify-center text-[#294537]">
             <HardHat className="w-10 h-10 text-amber-500" />
@@ -77,8 +84,8 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onOpenBook
           </p>
         </div>
 
-        {/* 4 Process Cards with numbers & dashed arrow connectors */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 relative">
+        {/* 5 Process Cards with numbers & dashed arrow connectors */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-6 relative">
           {HOW_IT_WORKS_STEPS.map((step, idx) => (
             <div key={step.number} className="relative flex flex-col items-center">
               {/* Step Number on top (01, 02, 03, 04) in light green condensed font */}

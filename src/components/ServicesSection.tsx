@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Shield, Battery, Wifi, Wrench, Building2, Headphones, Calendar, MessageCircle } from 'lucide-react';
+import { Home, Shield, Battery, Wifi, Wrench, Zap } from 'lucide-react';
 
 interface ServicesSectionProps {
   onSelectService: (serviceTitle: string) => void;
@@ -17,14 +17,14 @@ const SERVICES = [
     id: 2,
     number: '02',
     title: 'Safety, Protection & Panel Services',
-    description: 'Circuit breakers, DB upgrades, earthing, surge protection & complete panel solutions.',
+    description: 'Circuit breakers, DB upgrades, earthing, complete panel solutions.',
     icon: Shield,
   },
   {
     id: 3,
     number: '03',
     title: 'Backup Power & Energy Solutions',
-    description: 'Inverter setup, generator hookups, EV charger installation, solar wiring & energy solutions.',
+    description: 'Inverter setup, generator hookups, solar wiring & energy solutions.',
     icon: Battery,
   },
   {
@@ -41,13 +41,6 @@ const SERVICES = [
     description: 'Fault finding, load assessment, preventive inspections & 24/7 emergency repairs.',
     icon: Wrench,
   },
-  {
-    id: 6,
-    number: '06',
-    title: 'Commercial & Industrial Services',
-    description: '3-phase power installation, control panels, motor wiring & high-load cabling solutions.',
-    icon: Building2,
-  },
 ];
 
 interface ServiceCardProps {
@@ -55,82 +48,122 @@ interface ServiceCardProps {
   title: string;
   description: string;
   icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  index: number;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description, icon: Icon }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description, icon: Icon, index }) => {
+  const isPopular = index === 0 || index === 4;
+
   return (
-    <div className="group bg-white border border-[#E8E8E8] rounded-lg p-5 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-      {/* Icon and Number Row */}
-      <div className="flex items-center gap-4 sm:gap-5 lg:gap-6 mb-5 sm:mb-6">
-        <div className="w-12 sm:w-13 lg:w-14 h-12 sm:h-13 lg:h-14 rounded-full bg-[#E6EFE7] flex items-center justify-center group-hover:bg-[#D4E8D8] transition-colors flex-shrink-0">
-          <Icon className="w-6 sm:w-6 lg:w-7 h-6 sm:h-6 lg:h-7 text-[#1E3D2F]" strokeWidth={1.5} />
-        </div>
-        <span className="text-3xl sm:text-4xl font-black text-[#B8B8B8] tracking-tight font-['Bebas_Neue']">
-          {number}
-        </span>
+    <div className={`group relative rounded-[16px] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
+      isPopular
+        ? 'bg-[#294537] text-white border-2 border-[#c44b2b] shadow-lg'
+        : 'bg-[#fdfbf7] text-[#1c2c22] border border-stone-200/70'
+    }`}>
+      {/* Background Number */}
+      <div className={`absolute -left-8 -top-6 text-9xl font-condensed font-black pointer-events-none select-none opacity-10 ${
+        isPopular ? 'text-white' : 'text-[#588e73]'
+      }`}>
+        {number}
       </div>
 
-      {/* Title with red underline */}
-      <h3 className="text-sm sm:text-base font-bold text-[#1E3D2F] uppercase tracking-wide font-['Bebas_Neue'] mb-2">
-        {title}
-      </h3>
-      <div className="w-5 sm:w-6 h-1 bg-[#D33B2F] mb-3 sm:mb-4" />
+      {/* Popular Badge */}
+      {isPopular && (
+        <div className="absolute -top-2 right-3 px-3 py-1 bg-[#c44b2b] text-white text-xs font-bold uppercase rounded-full tracking-wide">
+          POPULAR
+        </div>
+      )}
 
-      {/* Description */}
-      <p className="text-xs sm:text-sm text-[#6B6B6B] leading-relaxed font-['Inter']">
-        {description}
-      </p>
+      {/* Content Container */}
+      <div className="relative z-10">
+        {/* Icon Container */}
+        <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 flex-shrink-0 transition-all duration-300 group-hover:scale-110 ${
+          isPopular
+            ? 'bg-white/10 border-2 border-[#c44b2b]'
+            : 'bg-emerald-50 border-2 border-[#588e73]/30'
+        }`}>
+          <Icon className={`w-8 h-8 transition-colors ${
+            isPopular
+              ? 'text-[#c44b2b]'
+              : 'text-[#294537]'
+          }`} strokeWidth={1.5} />
+        </div>
+
+        {/* Title */}
+        <h3 className={`text-sm sm:text-base font-extrabold uppercase tracking-wide mb-2 leading-tight transition-colors ${
+          isPopular
+            ? 'text-white'
+            : 'text-[#284537]'
+        }`}>
+          {title}
+        </h3>
+
+        {/* Accent Line */}
+        <div className={`w-8 h-1 rounded-full mb-3 transition-all group-hover:w-12 ${
+          isPopular
+            ? 'bg-white/50 group-hover:bg-white'
+            : 'bg-[#c44b2b]'
+        }`}></div>
+
+        {/* Description */}
+        <p className={`text-xs leading-relaxed font-normal line-clamp-3 ${
+          isPopular
+            ? 'text-white/80'
+            : 'text-stone-600'
+        }`}>
+          {description}
+        </p>
+      </div>
+
+      {/* Hover Arrow Indicator */}
+      <div className={`absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity ${
+        isPopular ? 'text-[#c44b2b]' : 'text-[#c44b2b]'
+      }`}>
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
     </div>
   );
 };
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectService }) => {
   return (
-    <section id="services" className="bg-[#F6F7F2] py-12 sm:py-16 lg:py-28 overflow-hidden">
-      {/* Decorative dot pattern */}
-      <div className="absolute top-16 sm:top-20 lg:top-24 left-4 sm:left-6 lg:left-8 opacity-25 pointer-events-none">
-        <div className="grid grid-cols-4 gap-1.5 sm:gap-2 lg:gap-2.5">
-          {Array.from({ length: 16 }).map((_, i) => (
-            <div key={i} className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#1E3D2F] rounded-full" />
-          ))}
-        </div>
-      </div>
+    <section id="services" className="relative bg-[#fdfbf7] py-20 sm:py-28 lg:py-36 overflow-hidden">
+      {/* Background Dot Matrix */}
+      <div className="absolute inset-0 dot-matrix opacity-15 pointer-events-none" />
 
-      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-14 lg:mb-20">
-          {/* Small Label */}
-          <p className="text-xs sm:text-sm uppercase tracking-widest text-[#1E3D2F] font-semibold mb-4 sm:mb-6 font-['Inter']">
-            — OUR SERVICES
-          </p>
-
-          {/* Main Heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black uppercase tracking-tight mb-3 sm:mb-4 font-['Bebas_Neue'] text-[#1E3D2F]">
-            COMPLETE <span className="text-[#D33B2F]">ELECTRICAL</span> SOLUTIONS
-          </h2>
-
-          {/* Decorative accent line */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-            <div className="w-8 sm:w-12 h-0.5 bg-[#D33B2F]" />
-            <Wrench className="w-4 sm:w-5 h-4 sm:h-5 text-[#D33B2F]" />
-            <div className="w-8 sm:w-12 h-0.5 bg-[#D33B2F]" />
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16 sm:mb-20">
+          {/* Badge: — OUR SERVICES */}
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-stone-300 bg-white text-[#294537] text-xs sm:text-sm font-bold uppercase tracking-wider shadow-sm">
+            <Zap className="w-4 h-4 text-[#c44b2b] fill-[#c44b2b]" />
+            <span>OUR SERVICES</span>
           </div>
 
+          {/* Main Heading */}
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-condensed font-black tracking-tight text-[#294537] uppercase leading-[0.92]">
+            COMPLETE<br />
+            <span className="text-[#c44b2b]">ELECTRICAL SOLUTIONS</span>
+          </h2>
+
           {/* Description */}
-          <p className="text-sm sm:text-base lg:text-lg text-[#3A3A3A] max-w-2xl mx-auto leading-relaxed font-['Inter']">
+          <p className="text-stone-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-1 font-normal drop-shadow-xs">
             From small repairs to complete installations, we provide safe, reliable & professional electrical services for homes, businesses & industries.
           </p>
         </div>
 
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mb-8 sm:mb-12 lg:mb-16">
-          {SERVICES.map((service) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
+          {SERVICES.map((service, index) => (
             <ServiceCard
               key={service.id}
               number={service.number}
               title={service.title}
               description={service.description}
               icon={service.icon}
+              index={index}
             />
           ))}
         </div>
