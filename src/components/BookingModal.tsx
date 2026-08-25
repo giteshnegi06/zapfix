@@ -233,7 +233,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full bg-white border-2 border-stone-300 rounded-xl px-4 py-2.5 text-sm text-stone-900 font-medium focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
+                    className="w-full bg-white border-2 border-stone-300 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2 xs:py-2.5 text-xs xs:text-sm text-stone-900 font-medium focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
                     required
                   />
                 </div>
@@ -246,7 +246,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     <select
                       value={timeSlot}
                       onChange={(e) => setTimeSlot(e.target.value)}
-                      className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 pr-10 text-sm text-stone-900 font-medium appearance-none cursor-pointer hover:border-[#294537] focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
+                      className="w-full bg-white border border-stone-300 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2 xs:py-2.5 pr-8 xs:pr-10 text-xs xs:text-sm text-stone-900 font-medium appearance-none cursor-pointer hover:border-[#294537] focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
                     >
                       <option value="08:00 AM - 10:00 AM">08:00 AM - 10:00 AM (Early Morning)</option>
                       <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM (Morning)</option>
@@ -275,7 +275,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       placeholder="Your Full Name *"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#294537]"
+                      className="w-full bg-white border border-stone-300 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2 xs:py-2.5 text-xs xs:text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#294537]"
                       required
                     />
                   </div>
@@ -286,7 +286,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       placeholder="Phone Number (e.g. +91 98765 43210) *"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#294537]"
+                      className="w-full bg-white border border-stone-300 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2 xs:py-2.5 text-xs xs:text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#294537]"
                       required
                     />
                   </div>
@@ -299,7 +299,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       placeholder="Street Address / Flat / Society *"
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
-                      className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#294537]"
+                      className="w-full bg-white border border-stone-300 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2 xs:py-2.5 text-xs xs:text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#294537]"
                       required
                     />
                   </div>
@@ -308,7 +308,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     <select
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2.5 pr-10 text-sm text-stone-900 font-medium appearance-none cursor-pointer hover:border-[#294537] focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
+                      className="w-full bg-white border border-stone-300 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2 xs:py-2.5 pr-8 xs:pr-10 text-xs xs:text-sm text-stone-900 font-medium appearance-none cursor-pointer hover:border-[#294537] focus:outline-none focus:ring-2 focus:ring-[#294537] focus:border-transparent transition-all"
                     >
                       <option value="Solan">Solan</option>
                       {/* <option value="Mumbai">Mumbai</option>
@@ -329,7 +329,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     rows={2}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full bg-white border border-stone-300 rounded-xl px-4 py-2 text-sm text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-[#294537]"
+                    className="w-full bg-white border border-stone-300 rounded-lg xs:rounded-xl px-3 xs:px-4 py-2 xs:py-2.5 text-xs xs:text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#294537]"
                   ></textarea>
                 </div>
               </div>
