@@ -109,9 +109,9 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
             {/* Electrician Portrait */}
             <div className="relative z-10 w-full flex justify-center">
               <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&h=900&q=90"
+                src="https://res.cloudinary.com/dh52la71p/image/upload/v1787682471/whyChooseUs_fwphcv.avif"
                 alt="Expert Electrician with arms crossed and yellow hardhat"
-                className="w-full max-w-[340px] sm:max-w-[380px] h-auto object-cover rounded-b-2xl drop-shadow-2xl"
+                className="w-full max-w-85 sm:max-w-95 h-auto object-cover rounded-b-2xl drop-shadow-2xl"
               />
             </div>
           </div>
