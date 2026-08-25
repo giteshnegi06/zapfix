@@ -69,11 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenCallModal }
                   How It Works
                 </a>
               </li>
-              <li>
-                <a href="#technicians" className="hover:text-white hover:underline transition-colors">
-                  Certified Crew
-                </a>
-              </li>
+              
               <li>
                 <a href="#reviews" className="hover:text-white hover:underline transition-colors">
                   Customer Reviews
@@ -110,14 +106,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenCallModal }
                   className="hover:text-white hover:underline transition-colors text-left"
                 >
                   Inverter &amp; Solar Panel Wiring
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={onOpenBooking}
-                  className="hover:text-white hover:underline transition-colors text-left"
-                >
-                  EV Fast Charger Installation
                 </button>
               </li>
               <li>

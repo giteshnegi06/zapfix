@@ -28,9 +28,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Technicians', href: '#technicians' },
-    { name: 'About Us', href: '#why-us' },
+    { name: 'Services', href: '#services' },
     { name: 'Process', href: '#process' },
+    { name: 'About Us', href: '#why-us' },
     { name: 'Contact', href: '#contact' },
   ];
 
