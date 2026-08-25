@@ -72,8 +72,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 xs:p-3 sm:p-4 md:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg sm:max-w-xl md:max-w-2xl bg-[#fdfbf7] text-[#1c2c22] rounded-xl sm:rounded-2xl md:rounded-[28px] shadow-2xl border border-stone-200 overflow-hidden max-h-[95vh] sm:max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-1 xs:p-2 sm:p-4 md:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full mx-2 xs:mx-3 sm:mx-0 max-w-sm xs:max-w-md sm:max-w-xl md:max-w-2xl bg-[#fdfbf7] text-[#1c2c22] rounded-xl sm:rounded-2xl md:rounded-[28px] shadow-2xl border border-stone-200 overflow-hidden max-h-[98vh] sm:max-h-[92vh] flex flex-col">
         {/* Header Bar */}
         <div className="bg-[#264435] text-white p-3 xs:p-4 sm:p-5 md:p-6 flex items-center justify-between gap-2 xs:gap-3">
           <div className="flex items-center gap-2 xs:gap-3 min-w-0 flex-1">
@@ -99,7 +99,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         </div>
 
         {/* Modal Content */}
-        <div className="p-3 xs:p-4 sm:p-6 md:p-8 overflow-y-auto flex-1 w-full">
+        <div className="p-3 xs:p-4 sm:p-6 md:p-8 overflow-y-auto flex-1 w-full max-w-full">
           {isSubmitted ? (
             <div className="text-center space-y-6 py-4">
               <div className="w-20 h-20 rounded-full bg-emerald-100 border-4 border-emerald-300 text-emerald-700 flex items-center justify-center mx-auto shadow-lg animate-bounce">
@@ -151,7 +151,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Step 1: Select Service Category */}
               <div>
-                <label className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-stone-700 mb-2 sm:mb-3">
+                <label className="block text-xs sm:text-sm font-extrabold uppercase tracking-wide text-stone-700 mb-2 sm:mb-3 break-words">
                   1. Select Electrical Service
                 </label>
                 <div className="relative">
