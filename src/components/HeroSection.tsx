@@ -15,7 +15,7 @@ export const HeroSection: React.FC<HeroSectionProps> = (props: HeroSectionProps)
       className="relative w-full min-h-screen bg-[#587e60] pt-20 sm:pt-24 lg:pt-28 flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Hero Image - Positioned at Bottom Center */}
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 w-140 md:max-w-xl lg:max-w-xl xl:w-7xl px-2 sm:px-4 lg:px-0">
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 w-130 md:max-w-xl lg:max-w-xl xl:w-7xl px-2 sm:px-4 lg:px-0">
         <img
           src={heroImage}
           alt="Expert electrician"
@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = (props: HeroSectionProps)
       </div>
 
       {/* Massive "INSTANT REPAIR" Text overlaid on red accent */}
-      <div className="absolute bottom-15 sm:bottom-20 xl:bottom-20 left-0 right-0 z-40 pointer-events-none overflow-hidden w-full">
+      <div className="absolute bottom-13 sm:bottom-20 xl:bottom-20 left-0 right-0 z-40 pointer-events-none overflow-hidden w-full">
         <div className="text-center text-white uppercase leading-none tracking-tight py-1 sm:py-2 lg:py-4 overflow-hidden">
           <h1 className="text-[140px] sm:text-[110px] md:text-[160px] lg:text-[200px] xl:text-[250px] font-['Bebas_Neue'] font-bold" style={{ lineHeight: '0.85', letterSpacing: '-0.01em' }}>
             INSTANT REPAIR
