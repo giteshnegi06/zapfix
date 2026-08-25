@@ -51,74 +51,37 @@ interface ServiceCardProps {
   index: number;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description, icon: Icon, index }) => {
-  const isPopular = index === 0 || index === 4;
-
+const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description, icon: Icon }) => {
   return (
-    <div className={`group relative rounded-[16px] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
-      isPopular
-        ? 'bg-[#294537] text-white border-2 border-[#c44b2b] shadow-lg'
-        : 'bg-[#fdfbf7] text-[#1c2c22] border border-stone-200/70'
-    }`}>
+    <div className="group relative rounded-[16px] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden bg-[#fdfbf7] text-[#1c2c22] border border-stone-200/70">
       {/* Background Number */}
-      <div className={`absolute -left-8 -top-6 text-9xl font-condensed font-black pointer-events-none select-none opacity-10 ${
-        isPopular ? 'text-white' : 'text-[#588e73]'
-      }`}>
+      <div className="absolute -left-8 -top-6 text-9xl font-condensed font-black pointer-events-none select-none opacity-10 text-[#588e73]">
         {number}
       </div>
-
-      {/* Popular Badge */}
-      {isPopular && (
-        <div className="absolute -top-2 right-3 px-3 py-1 bg-[#c44b2b] text-white text-xs font-bold uppercase rounded-full tracking-wide">
-          POPULAR
-        </div>
-      )}
 
       {/* Content Container */}
       <div className="relative z-10">
         {/* Icon Container */}
-        <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 flex-shrink-0 transition-all duration-300 group-hover:scale-110 ${
-          isPopular
-            ? 'bg-white/10 border-2 border-[#c44b2b]'
-            : 'bg-emerald-50 border-2 border-[#588e73]/30'
-        }`}>
-          <Icon className={`w-8 h-8 transition-colors ${
-            isPopular
-              ? 'text-[#c44b2b]'
-              : 'text-[#294537]'
-          }`} strokeWidth={1.5} />
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 flex-shrink-0 transition-all duration-300 group-hover:scale-110 bg-emerald-50 border-2 border-[#588e73]/30">
+          <Icon className="w-8 h-8 transition-colors text-[#294537]" strokeWidth={1.5} />
         </div>
 
         {/* Title */}
-        <h3 className={`text-sm sm:text-base font-extrabold uppercase tracking-wide mb-2 leading-tight transition-colors ${
-          isPopular
-            ? 'text-white'
-            : 'text-[#284537]'
-        }`}>
+        <h3 className="text-sm sm:text-base font-extrabold uppercase tracking-wide mb-2 leading-tight transition-colors text-[#284537]">
           {title}
         </h3>
 
         {/* Accent Line */}
-        <div className={`w-8 h-1 rounded-full mb-3 transition-all group-hover:w-12 ${
-          isPopular
-            ? 'bg-white/50 group-hover:bg-white'
-            : 'bg-[#c44b2b]'
-        }`}></div>
+        <div className="w-8 h-1 rounded-full mb-3 transition-all group-hover:w-12 bg-[#c44b2b]"></div>
 
         {/* Description */}
-        <p className={`text-xs leading-relaxed font-normal line-clamp-3 ${
-          isPopular
-            ? 'text-white/80'
-            : 'text-stone-600'
-        }`}>
+        <p className="text-xs sm:text-sm leading-relaxed font-normal line-clamp-3 text-stone-600">
           {description}
         </p>
       </div>
 
       {/* Hover Arrow Indicator */}
-      <div className={`absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity ${
-        isPopular ? 'text-[#c44b2b]' : 'text-[#c44b2b]'
-      }`}>
+      <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#c44b2b]">
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
