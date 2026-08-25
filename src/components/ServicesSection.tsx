@@ -49,11 +49,12 @@ interface ServiceCardProps {
   description: string;
   icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
   index: number;
+  onSelect: (serviceTitle: string) => void;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description, icon: Icon }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description, icon: Icon, onSelect }) => {
   return (
-    <div className="group relative rounded-[16px] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden bg-[#fdfbf7] text-[#1c2c22] border border-stone-200/70">
+    <div className="group relative rounded-[16px] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden bg-[#fdfbf7] text-[#1c2c22] border border-stone-200/70" onClick={() => onSelect(title)}>
       {/* Background Number */}
       <div className="absolute -left-8 -top-6 text-9xl font-condensed font-black pointer-events-none select-none opacity-10 text-[#588e73]">
         {number}
@@ -127,6 +128,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               description={service.description}
               icon={service.icon}
               index={index}
+              onSelect={onSelectService}
             />
           ))}
         </div>
