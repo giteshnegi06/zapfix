@@ -1,0 +1,6 @@
+{
+  "name": "Fixora - Electrical & Instant Repair Services",
+  "description": "Premium electrical repair and installation services with certified technicians, upfront pricing, 24/7 emergency support, and seamless online booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
