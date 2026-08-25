@@ -21,9 +21,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenCallModal }
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <a href="#home" className="flex items-center gap-2 text-white group">
-              <div className="w-8 h-8 rounded-lg bg-[#c44b2b] flex items-center justify-center text-white shadow-md">
-                <Zap className="w-5 h-5 fill-current text-white" />
-              </div>
               <span className="text-2xl font-extrabold tracking-tight font-syne uppercase">
                 CHAUHAN<span className="font-light opacity-70">ELECTRIX</span><span className="text-[#c44b2b]">.</span>
               </span>

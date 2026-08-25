@@ -108,11 +108,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Book Button (Mobile) */}
           <button
             onClick={() => onOpenBooking()}
-            className="flex items-center gap-1 px-4 py-2 rounded-lg bg-[#c44b2b] hover:bg-[#8a2421] text-white text-xs font-bold transition-colors cursor-pointer"
+            className="flex items-center gap-1 px-4 py-2 rounded-full  bg-[#c44b2b] hover:bg-[#8a2421] text-white text-sm font-bold transition-colors cursor-pointer"
             id="navbar-book-btn-mobile"
           >
             <Calendar className="w-4 h-4" />
-            <span>BOOK</span>
+            <span>Book</span>
           </button>
         </div>
       </div>
