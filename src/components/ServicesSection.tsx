@@ -9,35 +9,35 @@ const SERVICES = [
   {
     id: 1,
     number: '01',
-    title: 'Residential Electrical Services',
+    title: 'RESIDENTIAL ELECTRICAL SERVICES',
     description: 'Wiring, lighting, switchboards, fan & appliance installation, and more for your home.',
     icon: Home,
   },
   {
     id: 2,
     number: '02',
-    title: 'Safety, Protection & Panel Services',
+    title: 'SAFETY, PROTECTION & PANEL SERVICES',
     description: 'Circuit breakers, DB upgrades, earthing, complete panel solutions.',
     icon: Shield,
   },
   {
     id: 3,
     number: '03',
-    title: 'Backup Power & Energy Solutions',
+    title: 'BACKUP POWER & ENERGY SOLUTIONS',
     description: 'Inverter setup, generator hookups, solar wiring & energy solutions.',
     icon: Battery,
   },
   {
     id: 4,
     number: '04',
-    title: 'Smart Home & Low-Voltage Services',
+    title: 'SMART HOME & LOW-VOLTAGE SERVICES',
     description: 'Smart automation, CCTV, networking, intercom & security system installations.',
     icon: Wifi,
   },
   {
     id: 5,
     number: '05',
-    title: 'Maintenance & Troubleshooting',
+    title: 'MAINTENANCE & TROUBLESHOOTING',
     description: 'Fault finding, load assessment, preventive inspections & 24/7 emergency repairs.',
     icon: Wrench,
   },
@@ -54,7 +54,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ number, title, description, icon: Icon, onSelect }) => {
   return (
-    <div className="group relative rounded-[16px] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden bg-[#fdfbf7] text-[#1c2c22] border border-stone-200/70" onClick={() => onSelect(title)}>
+    <div className="group relative rounded p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden bg-[#fdfbf7] text-[#1c2c22] border border-stone-200/70" onClick={() => onSelect(title)}>
       {/* Background Number */}
       <div className="absolute -left-8 -top-6 text-9xl font-condensed font-black pointer-events-none select-none opacity-10 text-[#588e73]">
         {number}

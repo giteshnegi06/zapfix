@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   X,
   Calendar,
@@ -30,6 +30,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [selectedService, setSelectedService] = useState<string>(
     initialService || SERVICES_DATA[0].title
   );
+
+  useEffect(() => {
+    if (initialService) {
+      setSelectedService(initialService);
+    }
+  }, [initialService]);
   const [urgency, setUrgency] = useState<'routine' | 'urgent' | 'emergency'>('routine');
   const [date, setDate] = useState<string>(new Date().toISOString().split('T')[0]);
   const [timeSlot, setTimeSlot] = useState<string>('10:00 AM - 12:00 PM');

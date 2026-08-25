@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
+        <nav className="hidden lg:flex items-center space-x-4 lg:space-x-8">
           {navItems.map((item) => (
             <button
               key={item.name}
@@ -105,14 +105,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Search className="w-4 h-4" />
           </button>
 
-          {/* Call Now Button */}
+          {/* Book Button (Mobile) */}
           <button
-            onClick={onOpenCallModal}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-full border border-white/30 text-white text-sm font-semibold hover:bg-white/10 transition-colors cursor-pointer"
-            id="navbar-call-btn"
+            onClick={() => onOpenBooking()}
+            className="flex items-center gap-1 px-4 py-2 rounded-lg bg-[#c44b2b] hover:bg-[#8a2421] text-white text-xs font-bold transition-colors cursor-pointer"
+            id="navbar-book-btn-mobile"
           >
-            <Phone className="w-4 h-4" />
-            <span>Call Now</span>
+            <Calendar className="w-4 h-4" />
+            <span>BOOK</span>
           </button>
         </div>
       </div>
