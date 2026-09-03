@@ -2,13 +2,12 @@ import React from 'react';
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
-  onOpenCallModal: () => void;
 }
 
 const heroImage = "https://www.figma.com/api/mcp/asset/9da4f183-81aa-409f-9e87-46954c0dfc80.png";
 
 export const HeroSection: React.FC<HeroSectionProps> = (props: HeroSectionProps) => {
-  const { onOpenBooking, onOpenCallModal } = props;
+  const { onOpenBooking } = props;
   return (
     <section
       id="home"

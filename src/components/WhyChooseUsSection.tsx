@@ -12,19 +12,16 @@ import {
   MapPin,
   Calendar,
   Phone,
-  MessageSquare,
   CheckCircle2,
 } from 'lucide-react';
 import { WHY_CHOOSE_US_FEATURES } from '../data/mockData';
 
 interface WhyChooseUsSectionProps {
   onOpenBooking: () => void;
-  onOpenCallModal: () => void;
 }
 
 export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
   onOpenBooking,
-  onOpenCallModal,
 }) => {
   const getFeatureIcon = (iconName: string) => {
     switch (iconName) {
@@ -63,7 +60,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
           {/* Heading: RELIABLE SERVICE. YOU CAN TRUST. */}
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-condensed font-black tracking-tight text-[#fbf7ee] uppercase leading-[0.92]">
             RELIABLE SERVICE.<br />
-            <span className="text-[#c44b2b]">YOU CAN TRUST.</span>
+            <span className="text-[#152c21]">YOU CAN TRUST.</span>
           </h2>
 
           <p className="text-stone-200/90 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-1 font-normal">
@@ -100,9 +97,9 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
           </div>
 
           {/* Right Electrician Cutout Photo with Terracotta Arch matching Ref Image 4 */}
-          <div className="lg:col-span-4 relative flex justify-center items-end min-h-[420px] lg:min-h-[500px]">
+          <div className="lg:col-span-4 relative flex justify-center items-end min-h-105 lg:min-h-125">
             {/* Terracotta Background Half-Arch */}
-            <div className="absolute bottom-0 right-0 w-72 sm:w-80 md:w-96 h-80 sm:h-96 md:h-[440px] bg-[#c44b2b] rounded-t-full -z-0 shadow-2xl" />
+            <div className="absolute bottom-0 right-0 lg:-right-25 w-72 sm:w-80 md:w-96 h-80 sm:h-96 md:h-110 bg-[#c44b2b] rounded-t-full -z-0 shadow-2xl" />
 
             {/* Electrician Portrait */}
             <div className="relative z-10 w-full flex justify-center">
@@ -117,27 +114,27 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
 
         {/* Stats Strip Banner matching Ref Image 4 */}
         <div className="mt-14 bg-[#1f372c] border border-white/15 rounded-[22px] p-6 sm:p-8 shadow-xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:divide-x divide-white/10">
             {/* Stat 1: 1200+ Happy Customers */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 sm:px-3">
+            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 sm:px-3 text-center">
               <div className="w-12 h-12 rounded-2xl bg-[#294537] border border-white/20 text-white flex items-center justify-center shrink-0">
                 <Smile className="w-6 h-6 text-amber-300" />
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-condensed font-black text-white tracking-tight">
+                <div className="text-3xl font-condensed font-black text-white tracking-tight">
                   1200+
                 </div>
-                <div className="text-xs sm:text-sm text-stone-300">Happy Customers</div>
+                <div className="text-xs sm:text-sm text-stone-300 ">Happy Customers</div>
               </div>
             </div>
 
             {/* Stat 2: 15+ Years Experience */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 sm:px-3">
+            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 sm:px-3 text-center">
               <div className="w-12 h-12 rounded-2xl bg-[#294537] border border-white/20 text-white flex items-center justify-center shrink-0">
                 <Zap className="w-6 h-6 text-amber-300 fill-amber-300" />
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-condensed font-black text-white tracking-tight">
+                <div className="text-3xl font-condensed font-black text-white tracking-tight">
                   15+
                 </div>
                 <div className="text-xs sm:text-sm text-stone-300">Years of Experience</div>
@@ -145,12 +142,12 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
             </div>
 
             {/* Stat 3: 2500+ Projects Completed */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 sm:px-3">
+            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 sm:px-3 text-center">
               <div className="w-12 h-12 rounded-2xl bg-[#294537] border border-white/20 text-white flex items-center justify-center shrink-0">
                 <ClipboardCheck className="w-6 h-6 text-emerald-400" />
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-condensed font-black text-white tracking-tight">
+                <div className="text-3xl font-condensed font-black text-white tracking-tight">
                   2500+
                 </div>
                 <div className="text-xs sm:text-sm text-stone-300">Projects Completed</div>
@@ -158,12 +155,12 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
             </div>
 
             {/* Stat 4: 25+ Areas Served */}
-            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 sm:px-3">
+            <div className="flex items-center gap-3.5 pt-3 sm:pt-0 sm:px-3 text-center">
               <div className="w-12 h-12 rounded-2xl bg-[#294537] border border-white/20 text-white flex items-center justify-center shrink-0">
                 <MapPin className="w-6 h-6 text-[#c44b2b]" />
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-condensed font-black text-white tracking-tight">
+                <div className="text-3xl font-condensed font-black text-white tracking-tight">
                   25+
                 </div>
                 <div className="text-xs sm:text-sm text-stone-300">Areas Served</div>
@@ -173,7 +170,7 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
         </div>
 
         {/* Bottom CTA Banner matching Ref Image 5: "NEED AN ELECTRICIAN?" */}
-        <div className="mt-8 bg-gradient-to-r from-[#1b3427] to-[#244635] border border-white/20 rounded-[24px] p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+        <div className="mt-8 bg-linear-to-r from-[#1b3427] to-[#244635] border border-white/20 rounded-[24px] p-6 sm:p-8 shadow-2xl relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <h3 className="text-3xl sm:text-4xl font-condensed font-black text-white tracking-tight italic">
@@ -208,24 +205,26 @@ export const WhyChooseUsSection: React.FC<WhyChooseUsSectionProps> = ({
               </button>
 
               {/* CALL NOW */}
-              <button
-                onClick={onOpenCallModal}
+              <a
+                href="tel:+918544784955"
                 className="flex items-center gap-2 bg-[#203a2d] hover:bg-[#1a3025] text-white border border-white/30 px-5 py-3 rounded-xl font-bold text-sm uppercase tracking-wider transition-all duration-200 cursor-pointer"
                 id="why-choose-call-now-btn"
               >
                 <Phone className="w-4 h-4 text-amber-400" />
                 <span>CALL NOW</span>
-              </button>
+              </a>
 
               {/* WHATSAPP US */}
               <a
-                href="https://wa.me/18005553496?text=Hi%20ChauhánElectrix%2C%20I%20need%20electrical%20service%20help"
+                href="https://wa.me/918544784955?text=Hi%20ChauhánElectrix%2C%20I%20need%20electrical%20service%20help"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-5 py-3 rounded-xl font-extrabold text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
                 id="why-choose-whatsapp-btn"
               >
-                <MessageSquare className="w-4 h-4 fill-current" />
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                  <path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.38A9.94 9.94 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10zm5.86 14.2c-.25.7-1.45 1.36-2.02 1.44-.52.08-1.17.11-1.9-.12-.44-.14-1-.32-1.72-.63-3.02-1.3-4.99-4.32-5.14-4.53-.15-.2-1.23-1.64-1.23-3.13 0-1.49.78-2.22 1.06-2.53.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.08.15.13.32.02.5-.1.19-.16.3-.31.46-.15.16-.31.36-.44.48-.15.15-.3.31-.13.6.17.3.77 1.27 1.65 2.06 1.14 1.02 2.1 1.34 2.4 1.49.3.15.48.13.66-.05.18-.19.75-.87.95-1.17.2-.3.4-.24.67-.15.27.1 1.73.82 2.03.97.3.15.5.23.57.35.07.13.07.73-.18 1.43z" />
+                </svg>
                 <span>WHATSAPP US</span>
               </a>
             </div>

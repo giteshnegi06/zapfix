@@ -4,10 +4,9 @@ import { FAQ_DATA } from '../data/mockData';
 
 interface FaqSectionProps {
   onOpenBooking: () => void;
-  onOpenCallModal: () => void;
 }
 
-export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking, onOpenCallModal }) => {
+export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   const toggleFaq = (idx: number) => {
@@ -57,7 +56,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking, onOpenCal
                   </span>
                   <div
                     className={`w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 bg-[#c44b2b] text-white' : 'text-stone-700'
+                      isOpen ? 'rotate-180 bg-[#c44b2b] text-[#1c2c22]' : 'text-stone-700'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -83,13 +82,13 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking, onOpenCal
             </p>
           </div>
           <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={onOpenCallModal}
+            <a
+              href="tel:+918544784955"
               className="flex items-center gap-2 bg-[#2a4d3d] hover:bg-[#345e4a] text-white border border-white/20 px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider cursor-pointer"
             >
               <PhoneCall className="w-4 h-4 text-amber-400" />
               <span>Direct Call</span>
-            </button>
+            </a>
             <button
               onClick={onOpenBooking}
               className="flex items-center gap-2 bg-[#c44b2b] hover:bg-[#af3f22] text-white px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md cursor-pointer"

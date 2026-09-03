@@ -73,7 +73,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onOpenBook
             <span className="text-[#f5ebd7]">POWERFUL RESULTS</span>
           </h2>
 
-          <p className="text-stone-100 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto pt-1 font-normal drop-shadow-xs">
+          <p className="text-stone-100 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl text-balance mx-auto pt-1 font-normal drop-shadow-xs">
             Booking our electrical services is quick and easy. Here&apos;s how we get the job done.
           </p>
         </div>

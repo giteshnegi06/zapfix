@@ -4,7 +4,6 @@ import { REVIEWS_DATA } from '../data/mockData';
 
 interface ReviewsSectionProps {
   onOpenBooking: () => void;
-  onOpenCallModal: () => void;
 }
 
 export const ReviewsSection: React.FC<ReviewsSectionProps> = () => {

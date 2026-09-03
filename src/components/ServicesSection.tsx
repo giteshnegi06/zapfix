@@ -37,7 +37,7 @@ const SERVICES = [
   {
     id: 5,
     number: '05',
-    title: 'MAINTENANCE & TROUBLESHOOTING',
+    title: 'MAINTENANCE & TROUBLESHOOTING (REPAIR SERVICES)',
     description: 'Fault finding, load assessment, preventive inspections & 24/7 emergency repairs.',
     icon: Wrench,
   },

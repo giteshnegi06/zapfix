@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Phone, Calendar } from 'lucide-react';
+import { Search, Calendar } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: (serviceName?: string) => void;
   onOpenSearch: () => void;
-  onOpenCallModal: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenBooking,
   onOpenSearch,
-  onOpenCallModal,
 }) => {
   const [scrolled, setScrolled] = useState(false);
 

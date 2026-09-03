@@ -3,10 +3,9 @@ import { Zap, Phone, Mail, MapPin, ShieldCheck, Clock, ArrowUp, Heart } from 'lu
 
 interface FooterProps {
   onOpenBooking: () => void;
-  onOpenCallModal: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenCallModal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -122,15 +121,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenCallModal }
               24/7 Contact
             </h4>
             <div className="space-y-2.5 text-sm">
-              <button
-                onClick={onOpenCallModal}
+              <a
+                href="tel:+918544784955"
                 className="flex items-center gap-2.5 text-white hover:text-amber-400 transition-colors text-left font-bold"
               >
                 <div className="w-7 h-7 rounded-full bg-[#c44b2b] text-white flex items-center justify-center shrink-0">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span>+91 85447 84955</span>
-              </button>
+              </a>
 
               <div className="flex items-center gap-2.5 text-stone-300">
                 <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center shrink-0">

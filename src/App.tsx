@@ -15,14 +15,12 @@ import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { SearchModal } from './components/SearchModal';
-import { CallModal } from './components/CallModal';
 import { Phone, Calendar, Zap } from 'lucide-react';
 
 export default function App() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string | undefined>();
   const [searchModalOpen, setSearchModalOpen] = useState(false);
-  const [callModalOpen, setCallModalOpen] = useState(false);
 
   const handleOpenBooking = (serviceName?: string) => {
     setSelectedServiceForBooking(serviceName);
@@ -40,7 +38,6 @@ export default function App() {
       <Navbar
         onOpenBooking={() => handleOpenBooking()}
         onOpenSearch={() => setSearchModalOpen(true)}
-        onOpenCallModal={() => setCallModalOpen(true)}
       />
 
       {/* Main Page Sections replicating all user reference images */}
@@ -48,7 +45,6 @@ export default function App() {
         {/* Section 1: Hero Section (Ref Image 1: INSTANT REPAIR + Worker + Sponsors) */}
         <HeroSection
           onOpenBooking={() => handleOpenBooking()}
-          onOpenCallModal={() => setCallModalOpen(true)}
         />
 
         {/* Section 2: Services Section (Ref Image 6: COMPLETE ELECTRICAL SOLUTIONS FOR EVERY NEED) */}
@@ -62,13 +58,11 @@ export default function App() {
         {/* Section 3: Why Choose Us Section (Ref Images 4 & 5: RELIABLE SERVICE. YOU CAN TRUST.) */}
         <WhyChooseUsSection
           onOpenBooking={() => handleOpenBooking()}
-          onOpenCallModal={() => setCallModalOpen(true)}
         />
 
         {/* Section 5: Customer Reviews Section (Ref Image 2: TRUSTED BY HOMES & BUSINESSES) */}
         <ReviewsSection
           onOpenBooking={() => handleOpenBooking()}
-          onOpenCallModal={() => setCallModalOpen(true)}
         />
 
         {/* Section 6: Certified Technicians Crew
@@ -77,14 +71,12 @@ export default function App() {
         {/* Section 7: FAQ Section */}
         <FaqSection
           onOpenBooking={() => handleOpenBooking()}
-          onOpenCallModal={() => setCallModalOpen(true)}
         />
       </main>
 
       {/* Footer */}
       <Footer
         onOpenBooking={() => handleOpenBooking()}
-        onOpenCallModal={() => setCallModalOpen(true)}
       />
 
       {/* Floating Fast Action Floating Bar on Mobile */}
@@ -130,11 +122,6 @@ export default function App() {
         isOpen={searchModalOpen}
         onClose={() => setSearchModalOpen(false)}
         onSelectService={handleSelectServiceFromCard}
-      />
-
-      <CallModal
-        isOpen={callModalOpen}
-        onClose={() => setCallModalOpen(false)}
       />
     </div>
   );
