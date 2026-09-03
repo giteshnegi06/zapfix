@@ -103,11 +103,11 @@ export default function App() {
 
         <button
           onClick={() => handleOpenBooking()}
-          className="flex items-center gap-2 bg-[#c44b2b] hover:bg-[#af3f22] text-white px-4 py-3 rounded-full font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-2xl hover:scale-105 transition-transform cursor-pointer"
+          className="flex items-center gap-2 bg-[#c44b2b] hover:bg-[#af3f22] text-white px-4 py-3 rounded-full font-extrabold text-xs sm:text-sm tracking-wider shadow-2xl hover:scale-105 transition-transform cursor-pointer"
           id="floating-book-now-btn"
         >
           <Calendar className="w-4 h-4" />
-          <span className="hidden sm:inline">Instant</span> <span>Book</span>
+          <span>Book</span>
         </button>
       </div>
 

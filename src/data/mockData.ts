@@ -248,6 +248,6 @@ export const FAQ_DATA = [
   },
   {
     q: 'Do you provide warranties on repairs and installations?',
-    a: 'We offer a standard 30-day service warranty on all repair works and up to 1.3-year guarantee on new panel and wiring installations.',
+    a: 'We offer a standard 30-day service warranty on all repair works and up to 1-year guarantee on new panel and wiring installations.',
   },
 ];

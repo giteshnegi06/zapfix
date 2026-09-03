@@ -153,7 +153,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               30-Day Warranty <span className="text-stone-300 font-normal">on all repairs</span>
             </span>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white text-xs sm:text-sm font-bold">
-              1.3-Year Guarantee <span className="text-stone-300 font-normal">on panel & wiring</span>
+              1-Year Guarantee <span className="text-stone-300 font-normal">on panel & wiring</span>
             </span>
           </div>
         </div>

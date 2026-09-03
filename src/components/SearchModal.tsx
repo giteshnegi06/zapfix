@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Search, X, Zap, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { SERVICES_DATA, FAQ_DATA } from '../data/mockData';
 
@@ -8,22 +8,54 @@ interface SearchModalProps {
   onSelectService: (serviceName: string) => void;
 }
 
+const POPULAR_SEARCHES: { term: string; serviceId?: string }[] = [
+  { term: 'Main Distribution Board (DB)', serviceId: 'panel-safety' },
+  { term: 'Fuse & MCB Replacement', serviceId: 'panel-safety' },
+  { term: 'Short Circuit Diagnostics', serviceId: 'maintenance' },
+  { term: 'Inverter & Battery Wiring', serviceId: 'backup-power' },
+  { term: 'Lighting & Sockets', serviceId: 'residential' },
+  { term: 'Smart Home Automation', serviceId: 'smart-home' },
+  { term: 'Warranty' },
+];
+
 export const SearchModal: React.FC<SearchModalProps> = ({
   isOpen,
   onClose,
   onSelectService,
 }) => {
   const [query, setQuery] = useState('');
+  const [activeServiceId, setActiveServiceId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  const matchedServices = SERVICES_DATA.filter((s) => {
-    const q = query.toLowerCase();
-    return (
-      s.title.toLowerCase().includes(q) ||
-      s.items.some((item) => item.toLowerCase().includes(q))
-    );
-  });
+  const handleQueryChange = (value: string) => {
+    setQuery(value);
+    setActiveServiceId(null);
+  };
+
+  const handlePopularSearch = (searchItem: { term: string; serviceId?: string }) => {
+    setQuery(searchItem.term);
+    setActiveServiceId(searchItem.serviceId ?? null);
+  };
+
+  const matchedServices = activeServiceId
+    ? SERVICES_DATA.filter((s) => s.id === activeServiceId)
+    : SERVICES_DATA.filter((s) => {
+        const q = query.toLowerCase();
+        return (
+          s.title.toLowerCase().includes(q) ||
+          s.items.some((item) => item.toLowerCase().includes(q))
+        );
+      });
 
   const matchedFaqs = FAQ_DATA.filter((f) => {
     const q = query.toLowerCase();
@@ -39,14 +71,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           <input
             type="text"
             autoFocus
-            placeholder="Search electrical services, e.g. 'wiring', 'fuse', 'inverter', 'EV charger'..."
+            placeholder="Search electrical services, e.g. 'wiring', 'fuse', 'inverter', 'smart home'..."
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => handleQueryChange(e.target.value)}
             className="w-full text-base font-semibold text-stone-900 bg-transparent focus:outline-hidden"
           />
           {query && (
             <button
-              onClick={() => setQuery('')}
+              onClick={() => handleQueryChange('')}
               className="text-stone-400 hover:text-stone-600 p-1"
             >
               <X className="w-4 h-4" />
@@ -54,10 +86,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           )}
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-lg cursor-pointer transition-colors"
             aria-label="Close search"
+            className="text-[10px] font-bold uppercase tracking-wider text-stone-500 hover:text-stone-800 hover:bg-stone-100 border border-stone-200 rounded px-1.5 py-1 shrink-0 cursor-pointer transition-colors"
           >
-            <X className="w-5 h-5" />
+            Esc
           </button>
         </div>
 
@@ -70,21 +102,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                 Popular Searches
               </p>
               <div className="flex flex-wrap gap-2">
-                {[
-                  'Main Distribution Board (DB)',
-                  'EV Charger Installation',
-                  'Short Circuit Diagnostics',
-                  'Inverter & Battery Wiring',
-                  'Lighting & Sockets',
-                  'Smart Home Automation',
-                  'Warranty',
-                ].map((term) => (
+                {POPULAR_SEARCHES.map((searchItem) => (
                   <button
-                    key={term}
-                    onClick={() => setQuery(term)}
+                    key={searchItem.term}
+                    onClick={() => handlePopularSearch(searchItem)}
                     className="px-3 py-1.5 rounded-full bg-stone-100 hover:bg-emerald-100 hover:text-emerald-900 text-xs font-semibold text-stone-700 transition-colors cursor-pointer"
                   >
-                    {term}
+                    {searchItem.term}
                   </button>
                 ))}
               </div>
